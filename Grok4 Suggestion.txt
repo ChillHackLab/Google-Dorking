@@ -1,0 +1,111 @@
+#### 1. Exposed Configuration Files (e.g., Configs with Credentials or API Keys)
+These dorks target files like .env, config.php, or INI files that may contain database passwords, API keys, or other secrets.
+- `intitle:"index of" ("config.php" OR "wp-config.php" OR "database-config.php" OR "settings.conf" OR "appsettings.json") AND ("database" OR "credentials") -intitle:"documentation" -filetype:pdf`
+- `ext:env | ext:yaml | ext:json "DB_PASSWORD"`
+- `filetype:ini intext:env.ini`
+- `ext:ini Version=4.0.0.4 password`
+- `intitle:"index of" config.yml`
+- `filetype:env "DB_PASSWORD"`
+- `filetype:conf intext:"password"`
+- `inurl:/wp-content/plugins/revslider/`
+- `filetype:inc intext:mysql_connect password -please -could -port`
+- `inurl:/admin/config.php`
+- `intitle:"Error using Hypernews" "Server Software"`
+- `intitle:"eXist Database Administration" -demo`
+- `intitle:"EZPartner" -netpond`
+- `intitle:"inc. vpn 3000 concentrator"`
+
+#### 2. Open Directories and Backup Files (e.g., Public Folders with Sensitive Content)
+These reveal indexed directories containing backups, passwords, or other files.
+- `intitle:"index of" "parent directory" site:yourcompany.com`
+- `intitle:"index of" ("passwords.txt" OR "leaked-passwords.csv" OR "passwords.bak" OR "keyfile") -git -github -gitlab -bitbucket`
+- `parent directory /appz/ -xxx -html -htm -php -shtml -opendivx -md5 -md5sums`
+- `site:s3.amazonaws.com intitle:"index of" ("bucket" OR "files" OR "public" OR "documents" OR "images")`
+- `intitle:"Index of" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)`
+- `intitle:"index of" password.txt`
+- `intitle:"index of" error.log`
+- `intitle:index of .git`
+- `intitle:"index of" inurl:ftp`
+- `intitle:"index of" /admin`
+- `intitle:"index of" wp-admin`
+- `intitle:"Index of /" password.txt`
+- `"index of" inurl:wp-content/`
+- `intitle:"index of" "Index of /" password.txt`
+- `allinurl:".r{}_vti_cnf/"`
+- `intitle:"index of" inurl:backup`
+
+#### 3. Database Dumps and Logs (e.g., SQL Backups or Error Logs with Data)
+These locate database exports, logs, or dumps that may include user data or hashes.
+- `filetype:sql "dump" OR "backup"`
+- `ext:mdb inurl:_.mdb inurl:fpdb shop.mdb`
+- `ext:log "Software: Microsoft Internet Information Services _._"`
+- `filetype:txt intext:"password"`
+- `filetype:sql "# dumping data for table"`
+- `filetype:sql "# dumping data for table “”` PASSWORD` varchar ”`
+- `filetype:sql intext:wp_users PHPMyAdmin`
+- `filetype:sql "# for write privileges execute"`
+- `filetype:sql "PASSWORD()"`
+- `filetype:sql "insert into" (pass|passwd|password)`
+- `filetype:sql password`
+- `filetype:log inurl:”access.log”`
+- `filetype:sql inurl:wp-content/backup-*`
+- `intext:”phpMyAdmin MySQL-Dump” filetype:sql`
+- `inurl:admin filetype:log`
+- `inurl:log -intext:log ext:log inurl:wp-`
+
+#### 4. Login Pages and Admin Panels (e.g., Entry Points for Brute-Force Attacks)
+These find unprotected login forms or admin interfaces.
+- `inurl:"/login.php" OR inurl:"/admin.php" OR inurl:"/signin.php" OR inurl:"/user/login" intitle:"login" OR intitle:"admin" OR intitle:"portal" OR intext:"username" AND intext:"password"`
+- `inurl:admin intitle:"login" site:yourcompany.com`
+- `inurl:login OR inurl:admin OR inurl:signin`
+- `inurl:admin/login`
+- `inurl:/index.php/admin`
+- `inurl:"/user/login" "Powered by Drupal"`
+- `intitle:"login" "admin"`
+- `inurl:admin login`
+- `intitle:"phpMyAdmin" "Welcome to phpMyAdmin ***"`
+- `inurl:"dbadmin"`
+- `inurl:/phpmyadmin/index.php`
+- `intext:”Welcome to phpMyAdmin”`
+- `intitle:”Login — WordPress”`
+- `inurl:/phpPgAdmin/index.php`
+- `intext:”phpPgAdmin — Login”`
+- `intitle:"Employee Intranet Login"`
+- `intitle:"ePowerSwitch Login"`
+- `intitle:"Cisco CallManager User Options Log On" "Please enter your User ID and Password in the spaces provided below and click the Log On button to co`
+- `intitle:"ColdFusion Administrator Login"`
+
+#### 5. Leaked Credentials and Sensitive Documents (e.g., Docs with Passwords or User Data)
+These search for plain-text files, PDFs, or pastes with credentials.
+- `site:pastebin.com intext:"email" AND intext:"password" OR intext:"credentials" OR intext:"login" OR intext:"user:pass"`
+- `ext:(doc | pdf | xls | txt | ps | rtf | odt | sxw | psw | ppt | pps | xml) (intext:confidential salary | intext:"budget approved") inurl:confidential`
+- `filetype:pdf "strictly confidential" site:yourcompany.com`
+- `filetype:pdf "Confidential"`
+- `site:drive.google.com confidential`
+- `filetype:txt @gmail.com OR @yahoo.com OR @hotmail.com OR @aol.com`
+- `filetype:txt "login" site:yourcompany.com`
+- `ext:pwd inurl:(service | authors | administrators | users) "# -FrontPage-"`
+- `allintitle: restricted filetype:doc site:gov`
+- `intitle:"curriculum vitae" filetype:doc`
+- `filetype:txt "password"`
+
+#### 6. Vulnerable Servers and Applications (e.g., Misconfigured Servers or Known Exploits)
+These identify servers with known issues or exposed status pages.
+- `intitle:"Welcome to Windows 2000 Internet Services"`
+- `inurl:index.php?id=`
+- `inurl:/index.php?option=com_joomla`
+- `intitle:"Apache Tomcat" intext:"If you're seeing this, you've successfully installed Tomcat"`
+- `intext:"Warning: mysql_connect()" intext:"on line" filetype:php`
+- `intext:”Error Message” intext:”MySQL server” intext:”on * using password:”`
+- `inurl:phpinfo.php`
+- `inurl:"/cgi-bin/" intext:"default password"`
+- `intitle:"Apache2 Ubuntu Default Page: It works"`
+- `intitle:"mongodb status" intext:"topologyVersion"`
+- `intitle:"Kibana" intext:"Welcome to Elastic"`
+- `intitle:"Dashboard [Jenkins]"`
+- `intitle:"GitLab"`
+- `intitle:"Error Occurred While Processing Request" +WHERE (SELECT|INSERT) filetype:cfm`
+- `intitle:"Error Occurred" "The error occurred in" filetype:cfm`
+- `intitle:"Execution of this script not permitted"`
+- `intitle:"Default PLESK Page"`
+- `intitle:"Dell Remote Access Controller"`
