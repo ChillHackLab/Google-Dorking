@@ -1,0 +1,29 @@
+intitle:"phpMyAdmin" intext:"Welcome to phpMyAdmin" -inurl:demo -inurl:docs -inurl:guide
+filetype:env "DB_PASSWORD"
+inurl:.git/config -inurl:bitbucket -inurl:github -inurl:gitlab
+intitle:"index of" .env
+filetype:sql "MySQL dump" (pass|password|pwd)
+inurl:admin/login.php intitle:login
+filetype:log username password
+intext:"api_key" filetype:txt
+intitle:"Index of" "credentials"
+intitle:"index of" "/.idea"
+filetype:inc "pwd=" "UID="
+inurl:wp-content/ intitle:"index of"
+filetype:yaml inurl:cassandra
+intitle:"index of" password.txt
+inurl:/wp-content/plugins/revslider/
+intitle:"mongodb status" intext:"topologyVersion"
+filetype:txt @gmail.com OR @yahoo.com OR @hotmail.com
+inurl:index.php?id=
+ext:inc intext:env.ini
+site:s3.amazonaws.com intitle:"index of" ("bucket" OR "files" OR "public" OR "documents" OR "images")
+inurl:login.php OR inurl:admin.php OR inurl:signin.php intitle:login
+filetype:pst inurl:"outlook.pst"
+intitle:"index of" "sitemanager.xml" | "recentservers.xml"
+inurl:/test/ site:*.com
+site:pastebin.com intext:"email" AND intext:"password" OR intext:"credentials"
+filetype:bak inurl:"htaccess|passwd|shadow|htusers"
+inurl:php?=id1
+intitle:"Kibana" intext:"Welcome to Elastic"
+filetype:pdf "Confidential" site:*.bank
